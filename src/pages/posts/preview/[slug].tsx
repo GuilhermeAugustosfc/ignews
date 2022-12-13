@@ -24,7 +24,7 @@ export default function Preview({ post }: PreviewProps) {
   const session = useSession();
   const router = useRouter();
   useEffect(() => {
-    if (session.data?.activeUserSubscription) {
+    if (session.data && session.data.hasOwnProperty("activeUserSubscription")) {
       router.push(`/posts/${post.slug}`);
     }
   }, [session]);
