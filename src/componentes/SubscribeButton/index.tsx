@@ -16,8 +16,9 @@ export function SubscribeButton({ priceId }: SubscribeButtonProps) {
       signOut();
       return;
     }
+    console.log(session);
 
-    if (session.data && session.data?.activeUserSubscription) {
+    if (session.data && session.data.hasOwnProperty("activeUserSubscription")) {
       router.push("/posts");
       return;
     }
