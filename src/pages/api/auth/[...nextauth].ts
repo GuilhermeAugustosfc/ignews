@@ -38,7 +38,6 @@ export default NextAuth({
             ])
           )
         );
-        console.log({ activeUserSubscription });
 
         return { ...session, activeUserSubscription };
       } catch (error) {

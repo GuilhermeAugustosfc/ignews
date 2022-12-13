@@ -18,9 +18,12 @@ interface PostProps {
 interface PreviewProps {
   post: PostProps;
 }
+console.log(1);
+
 export default function Preview({ post }: PreviewProps) {
   const session = useSession();
   const router = useRouter();
+  console.log(1);
 
   useEffect(() => {
     if (session.data?.activeUserSubscription) {
@@ -64,6 +67,7 @@ export const getStaticPaths: GetStaticPaths = () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params;
+  console.log(1);
 
   const prismic = await getPrismicClient();
   const postSlug = await prismic.getByUID("publication", String(slug), {});
