@@ -41,7 +41,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   console.log("slug");
 
   const session = await getSession({ ctx }); // vamos usar isso depois para validar a inscricao
-  if (!session || !session.activeUserSubscription) {
+  if (!session || !session.hasOwnProperty("activeUserSubscription")) {
     return {
       redirect: {
         destination: "/",
