@@ -38,6 +38,7 @@ export default function PostDetail({ post }: PostDetailProps) {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { params } = ctx;
+  console.log("slug");
 
   const session = await getSession({ ctx }); // vamos usar isso depois para validar a inscricao
   if (!session || !session.activeUserSubscription) {

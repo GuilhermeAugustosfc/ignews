@@ -12,7 +12,7 @@ export function Header() {
             <a>Home</a>
           </ActiveLink>
 
-          <ActiveLink href="/post" classActive={styles.active}>
+          <ActiveLink href="/posts" classActive={styles.active}>
             <a>Post</a>
           </ActiveLink>
         </nav>

@@ -5,6 +5,7 @@ import { getPrismicClient } from "../../services/prismic";
 
 import { RichText } from "prismic-dom";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 interface PostProp {
   slug: string;
@@ -17,6 +18,8 @@ interface PostsProps {
 }
 
 export default function Posts({ posts }: PostsProps) {
+  const session = useSession();
+  const linkPostValid = session.data ? "posts" : "posts/preview";
   return (
     <>
       <Head>
@@ -25,7 +28,12 @@ export default function Posts({ posts }: PostsProps) {
       <main className={styles.container}>
         <div className={styles.posts}>
           {posts.map((post) => (
-            <Link key={post.slug} href={`posts/${post.slug}`}>
+            <Link
+              href={{
+                pathname: `${linkPostValid}/${post.slug}`,
+              }}
+              key={post.slug}
+            >
               <a>
                 <time>{post.updateAt}</time>
                 <strong>{post.title}</strong>

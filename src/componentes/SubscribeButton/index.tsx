@@ -12,7 +12,7 @@ export function SubscribeButton({ priceId }: SubscribeButtonProps) {
   const session = useSession();
   const router = useRouter();
   const hundleSubscribe = async () => {
-    if (!session) {
+    if (!session.data) {
       signOut();
       return;
     }
